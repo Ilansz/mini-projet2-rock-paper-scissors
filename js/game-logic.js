@@ -1,5 +1,5 @@
 // All code should be written in this file.
-
+// Set variables to moves and value
 var playerOneMoveOneType = undefined;
 var playerOneMoveTwoType = undefined;
 var playerOneMoveThreeType = undefined;
@@ -15,6 +15,7 @@ var playerTwoMoveThreeValue = undefined;
 
 function setPlayerMoves(player, moveOneType, moveOneValue, moveTwoType,
     moveTwoValue, moveThreeType, moveThreeValue) {
+//"protecting" the game from bugs
 if (!moveOneType || !moveOneValue || !moveTwoType || !moveTwoValue ||
 !moveThreeType || !moveThreeValue) {
 return;
@@ -35,7 +36,7 @@ return;
 if ((moveOneValue + moveTwoValue + moveThreeValue) > 99) {
 return;
 }
-
+// Assigning the moves and the values to the right variable
 if (player === 'Player One') {
 playerOneMoveOneType = moveOneType;
 playerOneMoveOneValue = moveOneValue;
@@ -52,18 +53,18 @@ playerTwoMoveThreeType = moveThreeType;
 playerTwoMoveThreeValue = moveThreeValue;
 }
 }
-
+// Make sure the move type is rock, paper or scissors
 function isValidMoveType(moveType) {
 return (moveType === 'rock') ||
 (moveType === 'paper') ||
 (moveType === 'scissors');
 }
-
+// Make sure tha the value of the move is between 1 and 99
 function isValidMoveValue(moveValue) {
 return (moveValue >= 1) && (moveValue <= 99);
 }
 
-
+// Set the winner of the round
 function getRoundWinner(roundNumber) {
     switch(roundNumber) {
       case 1:
@@ -85,7 +86,7 @@ function getRoundWinner(roundNumber) {
         return null;
     }
   }
-  
+  // Set the rules of the games, with the move type and the value
   function getMoveWinner(playerOneMoveType, playerOneMoveValue, playerTwoMoveType,
                          playerTwoMoveValue) {
     if (!playerOneMoveType || !playerOneMoveValue || !playerTwoMoveType ||
@@ -122,7 +123,7 @@ function getRoundWinner(roundNumber) {
       }
     }
   }
-  
+  // Return the winner of the game
   function getGameWinner() {
     if (!playerOneMoveOneType || !playerOneMoveTwoType ||
         !playerOneMoveThreeType || !playerOneMoveOneValue ||
@@ -150,7 +151,7 @@ function getRoundWinner(roundNumber) {
       return 'Tie';
     }
   }
-  
+  // Add a point to the winner
   function addWin(winner) {
     if (winner === 'Player One') {
       playerOneWins = (playerOneWins + 1) || 1;
@@ -159,7 +160,7 @@ function getRoundWinner(roundNumber) {
     }
   }
 
-
+// Creating random moves and random values if the game is against the computer
   function setComputerMoves() {
     const moves = ['rock', 'paper', 'scissors'];
     const moveOneType = moves[Math.floor(Math.random() * 3)];
