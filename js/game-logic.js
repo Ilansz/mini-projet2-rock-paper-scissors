@@ -23,16 +23,16 @@ function setPlayerMoves(player, moveOneType, moveOneValue, moveTwoType,
   if (!isValidMoveType(moveOneType) || !isValidMoveType(moveTwoType) ||
       !isValidMoveType(moveThreeType)) {
         return;
-      }
+  }
 
   if (!isValidMoveValue(moveOneValue) || !isValidMoveValue(moveTwoValue) ||
       !isValidMoveValue(moveThreeValue)) {
         return;
-      }
+  }
 
   if ((moveOneValue + moveTwoValue + moveThreeValue) > 99) {
         return;
-      }
+  }
 
   if (player === 'Player One') {
     playerOneMoveOneType = moveOneType;
@@ -63,26 +63,26 @@ function isValidMoveValue(moveValue) {
 
 
 function getRoundWinner(roundNumber) {
-    switch(roundNumber) {
-      case 1:
-        return getMoveWinner(playerOneMoveOneType,
-                             playerOneMoveOneValue,
-                             playerTwoMoveOneType,
-                             playerTwoMoveOneValue);
-      case 2:
-        return getMoveWinner(playerOneMoveTwoType,
-                             playerOneMoveTwoValue,
-                             playerTwoMoveTwoType,
-                             playerTwoMoveTwoValue);
-      case 3:
-        return getMoveWinner(playerOneMoveThreeType,
-                             playerOneMoveThreeValue,
-                             playerTwoMoveThreeType,
-                             playerTwoMoveThreeValue);
-      default:
-        return null;
-    }
+  switch(roundNumber) {
+    case 1:
+      return getMoveWinner(playerOneMoveOneType,
+                           playerOneMoveOneValue,
+                           playerTwoMoveOneType,
+                           playerTwoMoveOneValue);
+    case 2:
+      return getMoveWinner(playerOneMoveTwoType,
+                           playerOneMoveTwoValue,
+                           playerTwoMoveTwoType,
+                           playerTwoMoveTwoValue);
+    case 3:
+      return getMoveWinner(playerOneMoveThreeType,
+                           playerOneMoveThreeValue,
+                           playerTwoMoveThreeType,
+                           playerTwoMoveThreeValue);
+    default:
+      return null;
   }
+}
   
 function getMoveWinner(playerOneMoveType, playerOneMoveValue, playerTwoMoveType,
                        playerTwoMoveValue) {
@@ -121,7 +121,7 @@ function getMoveWinner(playerOneMoveType, playerOneMoveValue, playerTwoMoveType,
       return 'Player Two';
       }
   }
-;}
+}
   
 function getGameWinner() {
   if (!playerOneMoveOneType || !playerOneMoveTwoType ||
@@ -150,7 +150,7 @@ function getGameWinner() {
   } else {
     return 'Tie';
   }
-};
+}
   
 function addWin(winner) {
   if (winner === 'Player One') {
@@ -158,7 +158,7 @@ function addWin(winner) {
   } else if (winner === 'Player Two') {
     playerTwoWins = (playerTwoWins + 1) || 1;
   }
-};
+}
 
 
 function setComputerMoves() {
@@ -171,4 +171,4 @@ function setComputerMoves() {
   const moveThreeValue = 99 - moveOneValue - moveTwoValue;
   setPlayerMoves('Player Two', moveOneType, moveOneValue, moveTwoType,
                  moveTwoValue, moveThreeType, moveThreeValue);
-};
+}
