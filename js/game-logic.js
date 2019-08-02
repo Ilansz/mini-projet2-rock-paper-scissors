@@ -15,7 +15,7 @@ var playerTwoMoveThreeValue = undefined;
 
 function setPlayerMoves(player, moveOneType, moveOneValue, moveTwoType,
     moveTwoValue, moveThreeType, moveThreeValue) {
-//"protecting" the game from bugs
+// Validate inputs
 if (!moveOneType || !moveOneValue || !moveTwoType || !moveTwoValue ||
 !moveThreeType || !moveThreeValue) {
 return;
@@ -53,18 +53,18 @@ playerTwoMoveThreeType = moveThreeType;
 playerTwoMoveThreeValue = moveThreeValue;
 }
 }
-// Make sure the move type is rock, paper or scissors
+// Validate Move type
 function isValidMoveType(moveType) {
 return (moveType === 'rock') ||
 (moveType === 'paper') ||
 (moveType === 'scissors');
 }
-// Make sure tha the value of the move is between 1 and 99
+// Make sure that the value of the move is between 1 and 99
 function isValidMoveValue(moveValue) {
 return (moveValue >= 1) && (moveValue <= 99);
 }
 
-// Set the winner of the round
+// Get the winner
 function getRoundWinner(roundNumber) {
     switch(roundNumber) {
       case 1:
