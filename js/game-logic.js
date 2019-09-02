@@ -34,6 +34,7 @@ return;
   }
 
 
+
 if ((moveOneValue + moveTwoValue + moveThreeValue) > 99) {
 return;
 }
@@ -53,6 +54,7 @@ playerTwoMoveTwoValue = moveTwoValue;
 playerTwoMoveThreeType = moveThreeType;
 playerTwoMoveThreeValue = moveThreeValue;
 }
+
 
 }
 // Validate Move type
@@ -86,11 +88,13 @@ function getRoundWinner(roundNumber) {
     default:
       return null;
   }
+
   // Set the rules of the games, with the move type and the value
   function getMoveWinner(playerOneMoveType, playerOneMoveValue, playerTwoMoveType,
                          playerTwoMoveValue) {
     if (!playerOneMoveType || !playerOneMoveValue || !playerTwoMoveType ||
         !playerTwoMoveValue) {
+
 
       return null;
   }
@@ -126,6 +130,7 @@ function getRoundWinner(roundNumber) {
       }
   }
 
+
   // Return the winner of the game
   function getGameWinner() {
     if (!playerOneMoveOneType || !playerOneMoveTwoType ||
@@ -138,6 +143,7 @@ function getRoundWinner(roundNumber) {
     }
     playerOneWins = 0;
     playerTwoWins = 0;
+
 
 
   const roundOneWinner = getRoundWinner(1);
@@ -157,14 +163,17 @@ function getRoundWinner(roundNumber) {
   }
 
   // Add a point to the winner
+
   function addWin(winner) {
     if (winner === 'Player One') {
+
 
       playerOneWins = (playerOneWins + 1) || 1;
   } else if (winner === 'Player Two') {
     playerTwoWins = (playerTwoWins + 1) || 1;
   }
 }
+
 
 
 // Creating random moves and random values if the game is against the computer
@@ -179,4 +188,5 @@ function getRoundWinner(roundNumber) {
     setPlayerMoves('Player Two', moveOneType, moveOneValue, moveTwoType,
                    moveTwoValue, moveThreeType, moveThreeValue);
   }
+
 
